@@ -45,6 +45,7 @@ The project uses the following technologies:
 5. **Liquibase** - to track, manage, and enforce database schema changes.
 6. **Tomcat** - used as a server to run our application.
 7. **Validation** - to check the correctness of entering user data.
+
 ![img.png](img/img10.png)
 
 ![img.png](img/img11.png)
