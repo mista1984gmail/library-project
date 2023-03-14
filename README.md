@@ -1,6 +1,6 @@
 **Project:** library.
 
-**About the project:** the library has a list of all readers and list of all books. The administrator can create a new user, edit his and delete his. If we delete user and he has books, they are not deleted.
+**About the project:** the library has a list of all readers and list of all books. The administrator can create a new user, edit and delete. If we delete user and he has books, they are not deleted.
 The administrator can assign a book to a user or return the book to the library.The administrator can create, edit and delete books. A search for all books is also implemented.
 
 ![img.png](img/img1.png)
