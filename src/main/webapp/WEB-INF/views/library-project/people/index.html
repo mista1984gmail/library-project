@@ -7,14 +7,14 @@
 <body style="background-color:#74992e;">
 <b>Пользователи:</b>
 <div th:each="person : ${people}">
-  <a th:href="@{/people/{id}(id=${person.getId()})}"
+  <a th:href="@{/library-project/people/{id}(id=${person.getId()})}"
      th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}">user</a>
 </div>
 
 <br/>
 <hr/>
 
-<a href="/people/new">Добавить человека</a>
+<a href="/library-project/people/new">Добавить человека</a>
 
 <br/>
 <hr/>

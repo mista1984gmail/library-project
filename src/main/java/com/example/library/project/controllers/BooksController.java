@@ -34,7 +34,7 @@ public class BooksController {
         else
             model.addAttribute("books", booksService.findWithPagination(page, booksPerPage, sortByYear));
 
-        return "books/index";
+        return "/library-project/books/index";
     }
 
     @GetMapping("/{id}")
@@ -48,67 +48,67 @@ public class BooksController {
         else
             model.addAttribute("people", peopleService.findAll());
 
-        return "books/show";
+        return "/library-project/books/show";
     }
 
     @GetMapping("/new")
     public String newBook(@ModelAttribute("book") Book Book) {
-        return "books/new";
+        return "/library-project/books/new";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("book") @Valid Book Book,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "books/new";
+            return "/library-project/books/new";
 
         booksService.save(Book);
-        return "redirect:/books";
+        return "redirect:/library-project/books";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("book", booksService.findOne(id));
-        return "books/edit";
+        return "/library-project/books/edit";
     }
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
-            return "books/edit";
+            return "/library-project/books/edit";
 
         booksService.update(id, book);
-        return "redirect:/books";
+        return "redirect:/library-project/books";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         booksService.delete(id);
-        return "redirect:/books";
+        return "redirect:/library-project/books";
     }
 
     @PatchMapping("/{id}/release")
     public String release(@PathVariable("id") int id) {
         booksService.release(id);
-        return "redirect:/books/" + id;
+        return "redirect:/library-project/books/" + id;
     }
 
     @PatchMapping("/{id}/assign")
     public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person selectedPerson) {
         // У selectedPerson назначено только поле id, остальные поля - null
         booksService.assign(id, selectedPerson);
-        return "redirect:/books/" + id;
+        return "redirect:/library-project/books/" + id;
     }
 
     @GetMapping("/search")
     public String searchPage() {
-        return "books/search";
+        return "/library-project/books/search";
     }
 
     @PostMapping("/search")
     public String makeSearch(Model model, @RequestParam("query") String query) {
         model.addAttribute("books", booksService.searchByTitle(query));
-        return "books/search";
+        return "/library-project/books/search";
     }
 }

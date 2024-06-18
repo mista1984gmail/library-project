@@ -7,14 +7,14 @@
 <body style="background-color:rgb(255, 255, 128);">
 <b>Книги:</b>
 <div th:each="book : ${books}">
-  <a th:href="@{/books/{id}(id=${book.getId()})}"
+  <a th:href="@{/library-project/books/{id}(id=${book.getId()})}"
      th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">book</a>
 </div>
 
 <br/>
 <hr/>
 
-<a href="/books/new">Добавить книгу</a>
+<a href="/library-project/books/new">Добавить книгу</a>
 <hr/>
 <a href="/">На главную</a>
 

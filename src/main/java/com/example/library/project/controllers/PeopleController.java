@@ -27,7 +27,7 @@ public class PeopleController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("people", peopleService.findAll());
-        return "people/index";
+        return "/library-project/people/index";
     }
 
     @GetMapping("/{id}")
@@ -35,12 +35,12 @@ public class PeopleController {
         model.addAttribute("person", peopleService.findOne(id));
         model.addAttribute("books", peopleService.getBooksByPersonId(id));
 
-        return "people/show";
+        return "/library-project/people/show";
     }
 
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person) {
-        return "people/new";
+        return "library-project/people/new";
     }
 
     @PostMapping()
@@ -49,31 +49,31 @@ public class PeopleController {
         personValidator.validate(person, bindingResult);
 
         if (bindingResult.hasErrors())
-            return "people/new";
+            return "/library-project/people/new";
 
         peopleService.save(person);
-        return "redirect:/people";
+        return "redirect:/library-project/people";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", peopleService.findOne(id));
-        return "people/edit";
+        return "/library-project/people/edit";
     }
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
-            return "people/edit";
+            return "/library-project/people/edit";
 
         peopleService.update(id, person);
-        return "redirect:/people";
+        return "redirect:/library-project/people";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         peopleService.delete(id);
-        return "redirect:/people";
+        return "redirect:/library-project/people";
     }
 }

@@ -31,16 +31,16 @@
   <hr/>
 </div>
 
-<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+<form th:method="GET" th:action="@{/library-project/people/{id}/edit(id=${person.getId()})}">
   <input type="submit" value="Редактировать"/>
 </form>
 
-<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+<form th:method="DELETE" th:action="@{/library-project/people/{id}(id=${person.getId()})}">
   <input type="submit" value="Удалить"/>
 </form>
 <hr/>
 <div>
-  <a href="/people">Список пользователей</a>
+  <a href="/library-project/people">Список пользователей</a>
 </div>
 
 </body>
