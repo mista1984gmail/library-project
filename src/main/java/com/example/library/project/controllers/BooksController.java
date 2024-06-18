@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/books")
+@RequestMapping("/library-project/books")
 public class BooksController {
     private final BooksService booksService;
     private final PeopleService peopleService;
